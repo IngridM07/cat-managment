@@ -1,0 +1,32 @@
+<section>
+
+    <div class="d-flex justify-content-between">
+      <h4>Cats</h4>
+      <a routerLink="/cat/create" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i>  Add New Cat </a>
+    </div>
+
+    <br>
+    
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Breed</th>
+        <th>Description</th>
+        <th>Location</th>
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let cat of allCats">
+        <td>{{ cat.id}}</td>
+        <td>{{ cat.name }}</td>
+        <td>{{ cat.breed }}</td>
+        <td>{{ cat.description }}</td>
+        <td>{{ cat.location }}</td>
+
+        <td>
+          <a href="#" [routerLink]="['/cat/', 'edit', cat.id  ]" class="btn btn-warning"><i class="fa fa-pencil"></i></a>
+          <button type="button" (click)="deleteCat(cat.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+        </td>
+      </tr>
+    </table>
+ </section>

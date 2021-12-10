@@ -1,0 +1,55 @@
+<div>
+
+    <div class="d-flex justify-content-between">
+      <h4>Cat form</h4>
+      <a href="#" routerLink="/cat/index" class="btn btn-primaryt">Back</a>
+    </div>
+  
+    <hr/>
+  
+      <form [formGroup]="form" (ngSubmit)="submit()">
+  
+          <div class="form-group row">
+              <div class="col-md-6 ">
+                <label for="title">Name:</label>
+                <input
+                  formControlName="name"
+                  id="name"
+                  type="text"
+                  class="form-control">
+                <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
+                    <div *ngIf="f.name.errors.required">*Name is required.</div>
+                    <div *ngIf="f.name.errors.pattern">*The name must only contain letters.</div>
+                </div>
+              </div>
+          </div>
+  
+          <div class="form-group row">
+              <div class="col-md-6 ">
+                <label for="breed">Breed:</label>
+                <input
+                  formControlName="breed"
+                  id="breed"
+                  type="text"
+                  class="form-control">
+                <div *ngIf="f.breed.touched && f.breed.invalid" class="alert alert-danger">
+                    <div *ngIf="f.breed.errors.required">*Breed is required.</div>
+                </div>
+              </div>
+          </div>
+  
+          <div class="form-group row">
+              <div class="col-md-6 ">
+                <label for="description">Description:</label>
+                <input
+                  formControlName="description"
+                  id="description"
+                  type="text"
+                  class="form-control">
+              </div>
+          </div>
+  
+          <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+      </form>
+  </div>
+  
