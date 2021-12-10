@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { CatService} from '../cat.service';
 import { Cat } from '../cat';
-import { subscribeOn } from 'rxjs/operators';
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
